@@ -242,7 +242,7 @@
 	
 	
 	// module
-	exports.push([module.id, "body {\n  background-color: #222; }\n\n.container .row {\n  display: block;\n  height: 36px; }\n  .container .row .col {\n    display: table-cell;\n    background-color: #555;\n    border: 2px solid #333;\n    width: 32px;\n    height: 32px; }\n    .container .row .col.active.red {\n      background-color: #cc370e !important; }\n    .container .row .col.active.blue {\n      background-color: #5f9ea0 !important; }\n    .container .row .col.active.green {\n      background-color: #56c95c !important; }\n    .container .row .col.active.yellow {\n      background-color: #efef17 !important; }\n    .container .row .col.active.purple {\n      background-color: #841adb !important; }\n", ""]);
+	exports.push([module.id, "body {\n  background-color: #222; }\n\n.container .row {\n  display: block;\n  height: 36px; }\n  .container .row .col {\n    display: inline-block;\n    background-color: #555;\n    border: 2px solid #333;\n    width: 32px;\n    height: 32px; }\n    .container .row .col.active.red {\n      background-color: #cc370e !important; }\n    .container .row .col.active.blue {\n      background-color: #5f9ea0 !important; }\n    .container .row .col.active.green {\n      background-color: #56c95c !important; }\n    .container .row .col.active.yellow {\n      background-color: #efef17 !important; }\n    .container .row .col.active.purple {\n      background-color: #841adb !important; }\n", ""]);
 	
 	// exports
 
