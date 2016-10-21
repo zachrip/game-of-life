@@ -1,0 +1,42 @@
+body {
+    background-color: #222;
+}
+
+.container {
+    .row {
+        display: block;
+
+        height: 36px;
+
+        .col {
+            display: table-cell;
+            background-color: #555;
+            border: 2px solid #333;
+
+            width: 32px;
+            height: 32px;
+
+            &.active {
+                &.red {
+                    background-color: #cc370e !important;
+                }
+
+                &.blue {
+                    background-color: #5f9ea0 !important;
+                }
+
+                &.green {
+                    background-color: #56c95c !important;
+                }
+
+                &.yellow {
+                    background-color: #efef17 !important;
+                }
+
+                &.purple {
+                    background-color: #841adb !important;
+                }
+            }
+        }
+    }
+}
