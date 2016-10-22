@@ -115,6 +115,23 @@ function render(container: HTMLDivElement, oldPopulatedSlots: number[], populate
   return container;
 }
 
+function paintCell(cell: HTMLElement) {
+  const { slotNumber } = cell.dataset;
+  const index = populatedSlots.indexOf(parseInt(slotNumber));
+
+  oldPopulatedSlots = [...populatedSlots];
+
+  if(index >= 0) {
+    populatedSlots.splice(index, 1);
+  } else {
+    populatedSlots.push(parseInt(slotNumber));
+  }
+
+  const selectedColor = colors[colorPicker.selectedIndex];
+
+  render(container, oldPopulatedSlots, populatedSlots, ['active', ...colors], ['active', selectedColor]);
+}
+
 // application code
 
 const rows = 21;
@@ -162,24 +179,17 @@ startButton.addEventListener('click', () => {
 });
 
 container.addEventListener('click', (event) => {
-  if(!(<HTMLElement>event.target).classList.contains('col')) {
-    return false;
+  const target = (<HTMLElement>event.target);
+  if(target.classList.contains('col')) {
+    paintCell(target);
   }
+});
 
-  const { slotNumber } = (<HTMLElement>event.target).dataset;
-  const index = populatedSlots.indexOf(parseInt(slotNumber));
-
-  oldPopulatedSlots = [...populatedSlots];
-
-  if(index >= 0) {
-    populatedSlots.splice(index, 1);
-  } else {
-    populatedSlots.push(parseInt(slotNumber));
+container.addEventListener('mouseover', (event) => {
+  const target = (<HTMLElement>event.target);
+  if(target.classList.contains('col') && event.which === 1) {
+    paintCell(target);
   }
-
-  const selectedColor = colors[colorPicker.selectedIndex];
-
-  render(container, oldPopulatedSlots, populatedSlots, ['active', ...colors], ['active', selectedColor]);
 });
 
 document.body.appendChild(container);
